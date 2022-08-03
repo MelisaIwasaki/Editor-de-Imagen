@@ -1,0 +1,247 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap'); /**/
+*{
+  /*margin:controla la cant de espacios entre border y los elementos circundantes*/
+  margin: 0;
+  /*padding:controla la cant de espacio entre el contenido del elemento y su border*/
+  padding: 0;
+  box-sizing: border-box;
+  /*font-family:fuente de un elemento*/
+  font-family: 'Poppins', sans-serif;
+}
+
+/*Centra todo el cuerpo en el medio y le pone color celeste en el fondo*/
+body{  
+  /*display:flex; todos los ítems se alinearán en una solo fila*/
+  display: flex;
+  /*px:longitud absoluta 16px=1rem*/
+  padding: 10px;
+  min-height: 100vh;
+  align-items: center;
+  /*justify-content define cómo el navegador distribuye el espacio entre y alrededor de los items flex*/
+  justify-content: center;
+  background: #E3F2FD;
+}
+
+/*Lo alarga al costado */
+.container{
+  /*width:ancho*/
+  width: 850px;
+  padding: 30px 35px 35px;
+  background: #fff;
+  border-radius: 10px;
+  /*box-shadow:aplica una o mas sombras a un elemento*/
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.container.disable .editor-panel,
+.container.disable .controls .reset-filter,
+.container.disable .controls .save-img{
+  opacity: 0.5;
+  /*establece como interactúa ( si interactúa ) un cierto elemento con el mouse*/
+  pointer-events: none;
+}
+
+/*Tamanio del titulo*/
+.container h2{
+  margin-top: -8px;
+  /*font-size:tamanio de la fuente*/
+  font-size: 22px;
+  /*font-weight:establece el grosor de los caracteres en una seccion del texto*/
+  font-weight: 500;
+}
+
+/*Alinea la foto a la derecha y los botones a la izquierda*/
+.container .wrapper{
+  display: flex;
+  margin: 20px 0;
+  min-height: 335px;
+}
+
+/*Le pone bordes al panel de editor y centra al medio*/
+.wrapper .editor-panel{
+  padding: 15px 20px;
+  width: 280px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/*Separa el titulo con el panel hacia abajo*/
+.editor-panel .title{
+  /*display:block; se pueden cambiar para bloquear elementos*/
+  display: block;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+/*Separa los botones de rotacion*/
+/*controls hace que los botones de guardar y elegir fotos se vaya a la derecha*/
+.editor-panel .options, .controls{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/*Agranda los botones y le pone color*/
+.editor-panel button{
+  outline: none;
+  height: 40px;
+  font-size: 14px;
+  color: #6C757D;
+  background: #fff;
+  border-radius: 3px;
+  margin-bottom: 8px;
+  border: 1px solid #aaa;
+}
+
+/*Agranda en forma rectangular los botones de los efectos*/
+.editor-panel .filter button{
+  width: calc(100% / 2 - 4px);
+}
+
+/*Funcion de tacto en los botones*/
+.editor-panel button:hover{
+  background: #f5f5f5;
+}
+
+/*Le cambia de color celeste a los botones cuando lo selecciona*/
+.filter button.active{
+  color: #fff;
+  border-color: #5372F0;
+  background: #5372F0;
+}
+
+/*.editor-panel .slider le cambia a .filter .slider*/
+.filter .slider{
+  margin-top: 12px;
+}
+
+/*Cambia la forma de control deslizante del brillo*/
+.filter .slider .filter-info{
+  display: flex;
+  color: #464646;
+  font-size: 14px;
+  justify-content: space-between;
+}
+
+/*Alarga el control deslizante*/
+.filter .slider input{
+  width: 100%;
+  height: 5px;
+  accent-color: #5372F0;
+}
+
+/*Separa el panel rotate hacia abajo*/
+.editor-panel .rotate{
+  margin-top: 17px;
+}
+
+/*Los botones de rotacion mas grandes y centrado al centro*/
+.editor-panel .rotate button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% / 4 - 3px);
+}
+
+/*Le cambio algo al boton rotate, pero no veo la diferencia*/
+.rotate .options button:nth-child(3),
+.rotate .options button:nth-child(4){
+  font-size: 18px;
+}
+
+/**/
+.rotate .options button:active{
+  color: #fff;
+  background: #5372F0;
+  border-color: #5372F0;
+}
+
+/*Separa la foto con el panel de editor.La foto mas a la derecha*/
+.wrapper .preview-img{
+  flex-grow: 1;
+  display: flex;
+  overflow: hidden;
+  margin-left: 20px;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Se alineo hacia abajo la foto*/
+.preview-img img{
+  max-width: 490px;
+  max-height: 335px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/*Agranda y cambia la forma de los botones de guardar,elegir y resetear*/
+.controls button{
+  padding: 11px 20px;
+  font-size: 14px;
+  border-radius: 3px;
+  outline: none;
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  transition: all 0.3s ease;
+  /*Le cambia a mayuscula los botones guardar y elegir*/
+  text-transform: uppercase;
+}
+
+/*Le cambia el borde y color del boton resetear*/
+.controls .reset-filter{
+  color: #6C757D;
+  border: 1px solid #6C757D;
+}
+
+/*Boton resetear, hover:se utiliza para seleccionar y dar estilo al pasar con el mouse por encima de un elemento*/
+.controls .reset-filter:hover{
+  color: #fff;
+  background: #6C757D;
+}
+
+/*Le cambia al boton elegir en un color mas oscuro con bordes*/
+.controls .choose-img{
+  background: #6C757D;
+  border: 1px solid #6C757D;
+}
+
+/*Le cambia al boton guardar en un color azul y lo separa del boton elegir*/
+.controls .save-img{
+  margin-left: 5px;
+  background: #5372F0;
+  border: 1px solid #5372F0;
+}
+
+/*Para tablet y smartphone*/
+@media screen and (max-width: 760px) {
+  .container{
+    padding: 25px;
+  }
+  .container .wrapper{
+    flex-wrap: wrap-reverse;
+  }
+  .wrapper .editor-panel{
+    width: 100%;
+  }
+  .wrapper .preview-img{
+    width: 100%;
+    margin: 0 0 15px;
+  }
+}
+
+/*Para tablet y smartphone*/
+@media screen and (max-width: 500px) {
+  .controls button{
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .controls .row{
+    width: 100%;
+  }
+  .controls .row .save-img{
+    margin-left: 0px;
+  }
+}
